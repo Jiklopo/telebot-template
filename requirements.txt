@@ -1,0 +1,6 @@
+Django
+django-heroku
+djangorestframework
+gunicorn
+psycopg2
+pyTelegramBotAPI
