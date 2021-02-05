@@ -16,6 +16,7 @@ and [DRF](https://www.django-rest-framework.org/) so you can modify at as a regu
       e.g. https://application_name.herokuapp.com
     - Go to deploy, in the deployment method section click GitHub, connect your account
     - Connect the repository you forked on step 2
-    - Click "deploy branch" and enable Automatic Deploys if you wish
+    - Click "deploy branch" and enable Automatic Deploys
 5. Now, you can text your bot and it will echo your message if everything has been set up correctly
 6. Edit the bot/bot.py file to [create your own bot.](https://github.com/eternnoir/pyTelegramBotAPI)
+7. Push changes to your repo for them to take effect.
