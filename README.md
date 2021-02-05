@@ -9,7 +9,7 @@ and [DRF](https://www.django-rest-framework.org/) so you can modify at as a regu
 1. [Create your telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot) and obtain token.
 2. Fork this repo.
 3. Go and register on https://www.heroku.com/
-4. Create an application
+4. Create an app
     - Go to settings, click reveal config vars
     - Add a variable TOKEN with the value of your bot token, e.g. 1202834947:AAFQ7YUBNAaH4_pCK8lHZSHZyGqW8B0YkW4
     - Add a variable APP_URL which is the url of your app without "/" in the end,
