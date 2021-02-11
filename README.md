@@ -4,10 +4,10 @@ This repository is a template for creating Telegram bot and deploy it to Heroku.
 to deploy it to Heroku. This bot is based on [Django](https://www.djangoproject.com/)
 and [DRF](https://www.django-rest-framework.org/) so you can modify at as a regular django app.
 
-# Setup Guide
+# Heroku Deploy Guide
 
 1. [Create your telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot) and obtain token.
-2. Fork this repo.
+2. Create your repo from this template.
 3. Go and register on https://www.heroku.com/
 4. Create an app
     - Go to settings, click reveal config vars
