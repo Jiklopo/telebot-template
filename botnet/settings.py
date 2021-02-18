@@ -55,7 +55,7 @@ WSGI_APPLICATION = 'botnet.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'botnet',
+        'NAME': 'telebot',
         'USER': 'jiklopo',
         'PASSWORD': 'kartop',
         'HOST': '127.0.0.1',
