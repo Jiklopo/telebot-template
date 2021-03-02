@@ -12,8 +12,6 @@ and [DRF](https://www.django-rest-framework.org/) so you can modify it as a regu
 4. Create an app
     - Go to settings, click reveal config vars
     - Add a variable with the key TOKEN and the value of your bot token
-    - Add a variable with the key APP_URL with the value https://your_app_name.herokuapp.com **Don't forget to replace
-      your_app_name with the actual name of your app!**
     - Go to deploy, in the deployment method section click GitHub, connect your account
     - Connect the repository you forked on step 2
     - Click "deploy branch" and enable Automatic Deploys
@@ -37,5 +35,5 @@ and [DRF](https://www.django-rest-framework.org/) so you can modify it as a regu
     - Connect to the db: `\c telebot`
     - Create User: `CREATE USER YOUR_USER WITH PASSWORD 'YOUR_PASSWORD';` __Don't forget to replace *YOUR_USER* and *YOUR_PASSWORD* to the values from step 4__
     - Exit: `\q`
-9. [Create Configuration](https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html#createExplicitly). Select __manage.py__ file for the __Script path__, __Parameters: runserver__ and create __Environment variables__ like on the step 4 in Deploying to Heroku guide.
+9. [Create Configuration](https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html#createExplicitly). Select __manage.py__ file for the __Script path__, __Parameters: runserver__ and create __Environment variable__ TOKEN with the value of your bot token.
 10. Now you can start your project using the play button.
