@@ -2,5 +2,6 @@ from django.urls import path
 from interface.views import *
 
 urlpatterns = [
-    path('', ControlView.as_view())
+    path('controls', ControlView.as_view()),
+    path('', IndexView.as_view())
 ]
