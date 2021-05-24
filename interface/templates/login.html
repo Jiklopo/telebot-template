@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+{% load filters %}
+{% block title %}Instructions{% endblock %}
+{% block main %}
+    <h1>Login Please</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Login">
+    </form>
+{% endblock %}
