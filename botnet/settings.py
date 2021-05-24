@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'bot',
+    'logs',
 
     'rest_framework'
 ]
@@ -60,6 +61,32 @@ DATABASES = {
         'PASSWORD': 'kartop',
         'HOST': '127.0.0.1',
         'PORT': '5432'
+    }
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'level': 'INFO'
+        },
+        'postgres': {
+            'class': 'logs.postgres_handler.PostgresHandler',
+            'level': 'WARNING'
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO'
+        },
+
+        'postgres': {
+            'handlers': ['postgres'],
+            'level': 'WARNING'
+        }
     }
 }
 
