@@ -18,6 +18,7 @@ INSTALLED_APPS = [
 
     'bot',
     'logs',
+    'interface',
 
     'rest_framework'
 ]
