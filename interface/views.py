@@ -13,7 +13,6 @@ class IndexView(TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
-        logger.warning('got context data')
         ctx = super().get_context_data(**kwargs)
         ctx['msg'] = 'Salem!'
         return ctx
