@@ -15,9 +15,10 @@ and [DRF](https://www.django-rest-framework.org/) so you can modify it as a regu
     - Go to deploy, in the deployment method section click GitHub, connect your account
     - Connect the repository you forked on step 2
     - Click "deploy branch" and enable Automatic Deploys
-5. Now, you can text your bot and it will echo your message if everything has been set up correctly
-6. Edit the bot/bot.py file to [create your own bot.](https://github.com/eternnoir/pyTelegramBotAPI)
-7. Push changes to your repo to update your bot.
+5. Click open app in the top right corner, then change the URL to look like this: `https://YOUR_APP.herokuapp.com/YOUR_TOKEN`. It will set the webhook for your bot.
+6. Now, you can text your bot and it will echo your message if everything has been set up correctly
+7. Edit the bot/bot.py file to [create your own bot.](https://github.com/eternnoir/pyTelegramBotAPI)
+8. Push changes to your repo to update your bot.
 
 # Ubuntu setup guide
 ###### Tested on Ubuntu 20.04.02.

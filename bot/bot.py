@@ -3,8 +3,6 @@ from telebot import TeleBot
 
 TOKEN = os.getenv('TOKEN')
 bot = TeleBot(TOKEN)
-bot.remove_webhook()
-bot.set_webhook(f"{os.getenv('APP_URL')}/{TOKEN}")
 
 
 @bot.message_handler(commands=['help', 'start'])
