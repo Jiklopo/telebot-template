@@ -1,11 +1,11 @@
-import os
+from os import getenv
 from pathlib import Path
 
 import django_heroku
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = os.getenv('SECRET_KEY') or 'secretik'
-DEBUG = os.getenv('ENV') == 'DEV'
+SECRET_KEY = getenv('SECRET_KEY') or getenv('TOKEN') or 'very_secret_key'
+DEBUG = getenv('ENV') == 'DEV'
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
@@ -52,6 +52,25 @@ TEMPLATES = [
     },
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+
+        'postgres': {
+            'class': 'logs.handlers.postgres_handler.PostgresLogHandler',
+            'level': 'ERROR',
+        },
+    },
+    'root': {
+        'handlers': ['console', 'postgres'],
+        'level': 'WARNING',
+    },
+}
+
 WSGI_APPLICATION = 'botnet.wsgi.application'
 
 DATABASES = {
@@ -59,7 +78,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'telebot',
         'USER': 'jiklopo',
-        'PASSWORD': 'kartop',
         'HOST': '127.0.0.1',
         'PORT': '5432'
     }
@@ -81,7 +99,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'controls'
-LOGOUT_REDIRECT_URL = 'index'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -99,4 +116,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
-django_heroku.settings(locals())
+django_heroku.settings(locals(), logging=False)
