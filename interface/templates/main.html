@@ -1,18 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Title{% endblock %}</title>
+    <title>{% block title %} Title {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style/main.css' %}">
+    {% block head %}{% endblock %}
 </head>
 <body>
-    <header>
-        <a href="{% url 'controls' %}">Your Bot</a>
-    </header>
-        {% block body %}
-            <h1>Hello</h1>
-        {% endblock %}
-    <footer>
-        <a href="https://github.com/jiklopo/telebot-template">Github</a>
-    </footer>
+<header>
+    <h3><a href="{% url 'controls' %}">Your Bot</a></h3>
+    <h3><a href="https://github.com/Jiklopo/telebot-template/">GitHub</a></h3>
+</header>
+{% block body %}
+    <h1>Hello</h1>
+{% endblock %}
 </body>
 </html>
