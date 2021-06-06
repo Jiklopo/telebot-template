@@ -2,9 +2,8 @@ from django.urls import path
 from interface.views import *
 
 urlpatterns = [
-    path('controls', ControlView.as_view(), name='controls'),
-    path('', IndexView.as_view(), name='index'),
-    path('set-webhook', SetWebhookView.as_view(), name='set-webhook'),
+    path('', ControlsView.as_view(), name='controls'),
     path('login', MyLoginView.as_view(), name='login'),
-    path('logout', MyLogoutView.as_view(), name='logout'),
+    path('change_password', PasswordChangeView.as_view(), name='change_password'),
+    path('set_webhook', SetWebhookView.as_view(), name='set_webhook'),
 ]

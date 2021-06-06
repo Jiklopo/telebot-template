@@ -10,7 +10,7 @@ logger.addHandler(PostgresLogHandler())
 
 
 @api_view(['POST'])
-def webhook(request, token):
+def bot_update_handler(request):
     bot.process_new_updates([telebot.types.Update.de_json(request.data)])
     print(request.data)
     return Response('!')

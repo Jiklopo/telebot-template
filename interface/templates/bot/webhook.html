@@ -1,6 +1,6 @@
 {% extends 'main.html' %}
 {% load filters %}
 {% block title %}Instructions{% endblock %}
-{% block main %}
-    <h1>This is your bot {{ msg|test:'proverka' }}</h1>
+{% block body %}
+    <h1>{{ msg }}</h1>
 {% endblock %}
