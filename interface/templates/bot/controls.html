@@ -1,7 +1,30 @@
 {% extends 'main.html' %}
+{% load static %}
 {% block title %}Control Panel{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'style/controls.css' %}">
+{% endblock %}
 {% block body %}
-    <h1>Control Panel</h1>
-    <a href="{% url 'set_webhook' %}">Set Webhook</a>
-    <p>{% lorem 4 p%}</p>
+    <main class="flex-row">
+        <h1>Control Panel</h1>
+        <a class="button-link" href="{% url 'set_webhook' %}">Set Webhook</a>
+    </main>
+
+    <main>
+        <h2>Latest logs</h2>
+        <div id="logs">
+            {% for log in logs %}
+                <h3><span class="error">{{ log.level }} </span>| {{ log.timestamp }}
+                    | {{ log.message | truncatechars:40 }}
+                    {% if log.request %}
+                        | {{ log.request | truncatechars:30 }}
+                    {% endif %}
+                </h3>
+            {% endfor %}
+        </div>
+        <div id="log-links">
+            <h5><a class="button-link" href="">View All</a></h5>
+            <h5><a class="button-link" href="">Clear All</a></h5>
+        </div>
+    </main>
 {% endblock %}
