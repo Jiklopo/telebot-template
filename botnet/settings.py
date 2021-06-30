@@ -103,5 +103,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles/')
+
 if ENV != 'DEV':
     django_heroku.settings(locals(), logging=False)
