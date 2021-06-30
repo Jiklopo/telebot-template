@@ -2,9 +2,9 @@ from os import getenv
 from pathlib import Path
 import dotenv
 import dj_database_url
-import django_heroku
 
 dotenv.load_dotenv()
+
 ENV = getenv('ENV')
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = getenv('TOKEN') or 'very_secret_key'
@@ -36,7 +36,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'botnet.urls'
@@ -106,6 +107,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles/')
-
-if ENV != 'DEV':
-    django_heroku.settings(locals(), logging=False)

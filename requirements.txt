@@ -6,3 +6,4 @@ psycopg2
 pyTelegramBotAPI
 python-dotenv
 dj-database-url
+whitenoise
