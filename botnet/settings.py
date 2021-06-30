@@ -1,11 +1,14 @@
 from os import getenv
 from pathlib import Path
-
+import dotenv
+import dj_database_url
 import django_heroku
 
+dotenv.load_dotenv()
+ENV = getenv('ENV')
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = getenv('SECRET_KEY') or getenv('TOKEN') or 'very_secret_key'
-DEBUG = getenv('ENV') == 'DEV'
+SECRET_KEY = getenv('TOKEN') or 'very_secret_key'
+DEBUG = ENV == 'DEV'
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
@@ -62,26 +65,19 @@ LOGGING = {
 
         'postgres': {
             'class': 'logs.handlers.postgres_handler.PostgresLogHandler',
-            'level': 'ERROR',
+            'level': 'WARNING',
         },
     },
     'root': {
         'handlers': ['console', 'postgres'],
-        'level': 'WARNING',
+        'level': 'INFO',
     },
 }
 
 WSGI_APPLICATION = 'botnet.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'telebot',
-        'USER': 'jiklopo',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
-    }
-}
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=None)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -116,4 +112,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
-django_heroku.settings(locals(), logging=False)
+if ENV == 'HEROKU':
+    django_heroku.settings(locals(), logging=False)

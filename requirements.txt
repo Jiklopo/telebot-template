@@ -4,3 +4,4 @@ djangorestframework
 gunicorn
 psycopg2
 pyTelegramBotAPI
+dj-database-url
