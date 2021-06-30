@@ -1,18 +1,9 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.urls import reverse
 from bot.bot import bot
 from logs.models import Log
-
-class ControlsView(LoginRequiredMixin, TemplateView):
-    template_name = 'bot/controls.html'
-
-    def get_context_data(self, **kwargs):
-        ctx = super().get_context_data(**kwargs)
-        ctx['logs'] = Log.objects.order_by('timestamp')[:10]
-        return ctx
-
 
 
 class MyLoginView(LoginView):
@@ -21,6 +12,12 @@ class MyLoginView(LoginView):
 
 class MyPasswordChangeView(PasswordChangeView):
     template_name = 'auth/password_change.html'
+
+
+class ControlsView(LoginRequiredMixin, ListView):
+    template_name = 'bot/controls.html'
+    paginate_by = 5
+    queryset = Log.objects.all()
 
 
 class SetWebhookView(LoginRequiredMixin, TemplateView):
