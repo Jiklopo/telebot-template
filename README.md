@@ -19,21 +19,18 @@ and [DRF](https://www.django-rest-framework.org/) so you can modify it as a regu
 6. Edit the bot/bot.py file to [create your own bot.](https://github.com/eternnoir/pyTelegramBotAPI)
 7. Push changes to your repo to update your bot.
 
-# Ubuntu setup guide
+# Local setup guide
+
 ###### Tested on Ubuntu 20.04.02.
+
 1. Install PyCharm Community: `sudo snap install pycharm-community --classic`.
-2. Install packages: `sudo apt install postgresql libpq-dev python3-pip`.
-3. Create ___your own___ repository from this template ___if you have not done so already___.
-4. [Clone your repo](https://www.jetbrains.com/pycharm/guide/tips/create-project-from-github/) using PyCharm.
-5. [Create virtualenv](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html#python_create_virtual_env) in PyCharm.
-6. [Install the requirements](https://www.jetbrains.com/help/pycharm/managing-dependencies.html#apply_dependencies).
-7. Open _botnet/settings.py_ and change the values of USER and PASSWORD ("jiklopo" and "kartop") in the database settings.
-8. Configure database (";" in the end is important):
-    - Open terminal
-    - Start psql: `sudo -u postgres psql`
-    - Create database: `CREATE DATABASE telebot;`
-    - Connect to the db: `\c telebot`
-    - Create User: `CREATE USER YOUR_USER WITH PASSWORD 'YOUR_PASSWORD';` __Don't forget to replace *YOUR_USER* and *YOUR_PASSWORD* to the values from step 4__
-    - Exit: `\q`
-9. [Create Configuration](https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html#createExplicitly). Select __manage.py__ file for the __Script path__, __Parameters: runserver__ and create __Environment variable__ TOKEN with the value of your bot token.
-10. Now you can start your project using the play button.
+2. Create ___your own___ repository from this template ___if you have not done so already___.
+3. [Clone your repo](https://www.jetbrains.com/pycharm/guide/tips/create-project-from-github/) using PyCharm.
+4. [Create virtualenv](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html#python_create_virtual_env)
+   in PyCharm.
+5. [Install the requirements](https://www.jetbrains.com/help/pycharm/managing-dependencies.html#apply_dependencies).
+6. [Create Configuration](https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html#createExplicitly)
+   . Select __manage.py__ file for the __Script path__, __Parameters: runserver__
+7. Create a copy of __.env.example__ file and name it __.env__
+8. Change the value of __TOKEN__ in __.env__ to your token.   
+9. Now you can start your project using the play button.
