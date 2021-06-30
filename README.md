@@ -14,7 +14,10 @@ and [DRF](https://www.django-rest-framework.org/) so you can modify it as a regu
     - Add a variable with the key TOKEN and the value of your bot token
     - Go to deploy, in the deployment method section click GitHub, connect your account
     - Connect the repository you forked on step 2
-    - Click "deploy branch" and enable Automatic Deploys
+    - Click "deploy branch" and enable Automatic Deploys. Wait until deployment finishes.
+    - Click More -> Run console in the upper right corner. Type in `python manage.py createsuperuser`.
+      Use [this](https://docs.djangoproject.com/en/3.2/intro/tutorial02/#creating-an-admin-user) if you are stuck.
+      -Click open app, log into your account created on the previous step, click __Set webhook__
 5. Now, you can text your bot and it will echo your message if everything has been set up correctly
 6. Edit the bot/bot.py file to [create your own bot.](https://github.com/eternnoir/pyTelegramBotAPI)
 7. Push changes to your repo to update your bot.
@@ -32,5 +35,5 @@ and [DRF](https://www.django-rest-framework.org/) so you can modify it as a regu
 6. [Create Configuration](https://www.jetbrains.com/help/pycharm/creating-and-editing-run-debug-configurations.html#createExplicitly)
    . Select __manage.py__ file for the __Script path__, __Parameters: runserver__
 7. Create a copy of __.env.example__ file and name it __.env__
-8. Change the value of __TOKEN__ in __.env__ to your token.   
+8. Change the value of __TOKEN__ in __.env__ to your token.
 9. Now you can start your project using the play button.
