@@ -3,6 +3,7 @@
     --light-blue: #dbe2ef;
     --blue: #3f72af;
     --dark-blue: #112d4e;
+    --accent: #7df9ff;
     --error: #e23e57;
 }
 
@@ -78,7 +79,7 @@ main h6 {
     padding: 0;
 }
 
-#log-links h5{
+#log-links h5 {
     margin: 10px;
 }
 
