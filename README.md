@@ -12,12 +12,13 @@ and [DRF](https://www.django-rest-framework.org/) so you can modify it as a regu
 4. Create an app
     - Go to settings, click reveal config vars
     - Add a variable with the key TOKEN and the value of your bot token
+    - Add a variable with the key APP_URL and the value of your app url, e.g. __telebot.herokuapp.com__
     - Go to deploy, in the deployment method section click GitHub, connect your account
     - Connect the repository you forked on step 2
     - Click "deploy branch" and enable Automatic Deploys. Wait until deployment finishes.
     - Click More -> Run console in the upper right corner. Type in `python manage.py createsuperuser`.
       Use [this](https://docs.djangoproject.com/en/3.2/intro/tutorial02/#creating-an-admin-user) if you are stuck.
-      -Click open app, log into your account created on the previous step, click __Set webhook__
+    - Click __Open app__, log into your account created on the previous step, click __Set Webhook__
 5. Now, you can text your bot and it will echo your message if everything has been set up correctly
 6. Edit the bot/bot.py file to [create your own bot.](https://github.com/eternnoir/pyTelegramBotAPI)
 7. Push changes to your repo to update your bot.

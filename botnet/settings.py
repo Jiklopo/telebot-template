@@ -9,7 +9,10 @@ ENV = getenv('ENV')
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = getenv('TOKEN') or 'very_secret_key'
 DEBUG = ENV == 'DEV'
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [
+    getenv('APP_URL')
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -76,8 +79,7 @@ LOGGING = {
 
 WSGI_APPLICATION = 'botnet.wsgi.application'
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=None)
+DATABASES = {'default': dj_database_url.config(conn_max_age=None)}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
