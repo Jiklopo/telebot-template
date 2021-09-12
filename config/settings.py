@@ -74,6 +74,7 @@ LOGGING = {
 WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {'default': dj_database_url.config(conn_max_age=None)}
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
