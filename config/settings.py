@@ -2,10 +2,15 @@ import os
 from pathlib import Path
 import dj_database_url
 
+# ENVS
+ENV = os.getenv('ENV')
+BOT_TOKEN = os.getenv('TOKEN')
+APP_URL = os.getenv('APP_URL')
+
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = os.getenv('TOKEN') or 'secretik'
-DEBUG = os.getenv('ENV') == 'DEV'
-ALLOWED_HOSTS = [os.getenv('APP_URL')]
+SECRET_KEY = BOT_TOKEN or 'secretik'
+DEBUG = ENV == 'DEV'
+ALLOWED_HOSTS = [APP_URL]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -49,6 +54,22 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG'
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'propagate': True,
+        'level': 'INFO'
+    },
+}
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
